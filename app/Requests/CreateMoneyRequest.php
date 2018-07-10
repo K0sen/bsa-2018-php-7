@@ -14,7 +14,6 @@ class CreateMoneyRequest
 
     public function getCurrencyId(): int
     {
-
     }
 
     public function getWalletId(): int

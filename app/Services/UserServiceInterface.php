@@ -3,7 +3,7 @@
 namespace App\Services;
 
 use Illuminate\Support\Collection;
-use App\Entity\User;
+use App\Entity2\User;
 use App\Requests\SaveUserRequest;
 
 interface UserServiceInterface

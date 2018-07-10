@@ -7,7 +7,7 @@ use App\Services\WalletServiceInterface;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Services\UserServiceInterface;
-use App\Entity\User;
+use App\Entity2\User;
 
 class Task1Test extends TestCase
 {

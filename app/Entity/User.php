@@ -1,29 +1,36 @@
 <?php
 
-namespace App;
+/**
+ * Created by Reliese Model.
+ * Date: Tue, 10 Jul 2018 18:31:56 +0000.
+ */
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+namespace App\Entity;
 
-class User extends Authenticatable
+use Reliese\Database\Eloquent\Model as Eloquent;
+
+/**
+ * Class User
+ *
+ * @property int $id
+ * @property string $name
+ * @property string $email
+ *
+ * @property \Illuminate\Database\Eloquent\Collection $wallets
+ *
+ * @package App\Entity
+ */
+class User extends Eloquent
 {
-    use Notifiable;
+    public $timestamps = false;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name',
+        'email'
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+    public function wallets()
+    {
+        return $this->hasMany(Wallet::class);
+    }
 }

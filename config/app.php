@@ -160,6 +160,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        // My custom providers
+        Reliese\Coders\CodersServiceProvider::class,
     ],
 
     /*

@@ -2,35 +2,40 @@
 
 /**
  * Created by Reliese Model.
- * Date: Tue, 10 Jul 2018 18:31:56 +0000.
+ * Date: Wed, 11 Jul 2018 07:16:21 +0000.
  */
 
 namespace App\Entity;
 
-use Reliese\Database\Eloquent\Model as Eloquent;
+use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class User
+ * Class User.
  *
- * @property int $id
- * @property string $name
- * @property string $email
- *
+ * @property int                                      $id
+ * @property string                                   $name
+ * @property string                                   $email
  * @property \Illuminate\Database\Eloquent\Collection $wallets
- *
- * @package App\Entity
  */
-class User extends Eloquent
+class User extends Model
 {
     public $timestamps = false;
 
     protected $fillable = [
         'name',
-        'email'
+        'email',
     ];
 
     public function wallets()
     {
         return $this->hasMany(Wallet::class);
+    }
+
+    public static function boot(): void
+    {
+        self::deleting(function ($user) {
+            /** @var $user User */
+            $user->wallets()->delete();
+        });
     }
 }

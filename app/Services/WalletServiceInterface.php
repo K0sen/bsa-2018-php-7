@@ -3,7 +3,7 @@
 namespace App\Services;
 
 use Illuminate\Support\Collection;
-use App\Entity2\Wallet;
+use App\Entity\Wallet;
 use App\Requests\CreateWalletRequest;
 
 interface WalletServiceInterface

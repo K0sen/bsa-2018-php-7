@@ -2,36 +2,33 @@
 
 /**
  * Created by Reliese Model.
- * Date: Tue, 10 Jul 2018 18:31:56 +0000.
+ * Date: Wed, 11 Jul 2018 07:16:21 +0000.
  */
 
 namespace App\Entity;
 
-use Reliese\Database\Eloquent\Model as Eloquent;
+use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Wallet
+ * Class Wallet.
  *
- * @property int $id
- * @property int $user_id
- * @property string $deleted_at
- *
- * @property \App\Entity\User $user
+ * @property int                                      $id
+ * @property int                                      $user_id
+ * @property string                                   $deleted_at
+ * @property \App\Entity\User                         $user
  * @property \Illuminate\Database\Eloquent\Collection $money
- *
- * @package App\Entity
  */
-class Wallet extends Eloquent
+class Wallet extends Model
 {
     use \Illuminate\Database\Eloquent\SoftDeletes;
     public $timestamps = false;
 
     protected $casts = [
-        'user_id' => 'int'
+        'user_id' => 'int',
     ];
 
     protected $fillable = [
-        'user_id'
+        'user_id',
     ];
 
     public function user()

@@ -2,7 +2,7 @@
 
 namespace Tests\Unit;
 
-use App\Entity2\Currency;
+use App\Entity\Currency;
 use App\Requests\CreateCurrencyRequest;
 use App\Requests\CreateMoneyRequest;
 use App\Requests\SaveUserRequest;

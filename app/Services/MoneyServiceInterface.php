@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use App\Entity2\Money;
+use App\Entity\Money;
 use App\Requests\CreateMoneyRequest;
 
 interface MoneyServiceInterface

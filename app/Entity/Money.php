@@ -2,42 +2,39 @@
 
 /**
  * Created by Reliese Model.
- * Date: Tue, 10 Jul 2018 18:31:56 +0000.
+ * Date: Wed, 11 Jul 2018 07:16:21 +0000.
  */
 
 namespace App\Entity;
 
-use Reliese\Database\Eloquent\Model as Eloquent;
+use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Money
+ * Class Money.
  *
- * @property int $id
- * @property float $amount
- * @property int $currency_id
- * @property int $wallet_id
- * @property string $deleted_at
- *
+ * @property int                  $id
+ * @property float                $amount
+ * @property int                  $currency_id
+ * @property int                  $wallet_id
+ * @property string               $deleted_at
  * @property \App\Entity\Currency $currency
- * @property \App\Entity\Wallet $wallet
- *
- * @package App\Entity
+ * @property \App\Entity\Wallet   $wallet
  */
-class Money extends Eloquent
+class Money extends Model
 {
     use \Illuminate\Database\Eloquent\SoftDeletes;
     public $timestamps = false;
 
     protected $casts = [
-        'amount' => 'float',
+        'amount'      => 'float',
         'currency_id' => 'int',
-        'wallet_id' => 'int'
+        'wallet_id'   => 'int',
     ];
 
     protected $fillable = [
         'amount',
         'currency_id',
-        'wallet_id'
+        'wallet_id',
     ];
 
     public function currency()

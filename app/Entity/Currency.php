@@ -2,29 +2,26 @@
 
 /**
  * Created by Reliese Model.
- * Date: Tue, 10 Jul 2018 18:31:56 +0000.
+ * Date: Wed, 11 Jul 2018 07:16:21 +0000.
  */
 
 namespace App\Entity;
 
-use Reliese\Database\Eloquent\Model as Eloquent;
+use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Currency
+ * Class Currency.
  *
- * @property int $id
- * @property string $name
- *
+ * @property int                                      $id
+ * @property string                                   $name
  * @property \Illuminate\Database\Eloquent\Collection $money
- *
- * @package App\Entity
  */
-class Currency extends Eloquent
+class Currency extends Model
 {
     public $timestamps = false;
 
     protected $fillable = [
-        'name'
+        'name',
     ];
 
     public function money()

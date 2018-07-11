@@ -11,6 +11,6 @@ class WalletsTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(App\Entity\Wallet::class, 10)->create();
     }
 }

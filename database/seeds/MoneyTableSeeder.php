@@ -11,6 +11,6 @@ class MoneyTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(App\Entity\Money::class, 10)->create();
     }
 }

@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use App\Entity2\Currency;
+use App\Entity\Currency;
 use App\Requests\CreateCurrencyRequest;
 
 interface CurrencyServiceInterface

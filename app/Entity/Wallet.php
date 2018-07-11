@@ -46,4 +46,9 @@ class Wallet extends Model
     {
         return $this->hasMany(Money::class);
     }
+
+    public function currencies()
+    {
+        return $this->belongsToMany(Currency::class, 'money')->withPivot(['amount']);
+    }
 }

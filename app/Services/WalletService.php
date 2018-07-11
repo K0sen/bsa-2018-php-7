@@ -49,8 +49,6 @@ class WalletService implements WalletServiceInterface
      */
     public function findCurrencies(int $walletId): Collection
     {
-        return Currency::whereHas('money', function ($query) use ($walletId) {
-            $query->where('wallet_id', $walletId);
-        })->get();
+        return Wallet::find($walletId)->currencies()->get();
     }
 }

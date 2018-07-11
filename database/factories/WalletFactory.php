@@ -2,8 +2,8 @@
 
 use Faker\Generator as Faker;
 
-$factory->define(App\Entity\Wallet::class, function (Faker $faker) {
+$factory->define(App\Entity\Wallet::class, function (Faker $faker, array $attr) {
     return [
-        'user_id' => $faker->randomElement(App\Entity\User::all()->pluck('id')->toArray())
+        'user_id' => $attr['user_id']
     ];
 });

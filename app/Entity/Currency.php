@@ -24,6 +24,9 @@ class Currency extends Model
         'name',
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function money()
     {
         return $this->hasMany(Money::class);

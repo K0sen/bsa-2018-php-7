@@ -11,6 +11,9 @@ class WalletsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Entity\Wallet::class, 10)->create();
+        $users = App\Entity\User::all();
+        foreach ($users as $user) {
+            factory(App\Entity\Wallet::class)->create(['user_id' => $user->id]);
+        }
     }
 }

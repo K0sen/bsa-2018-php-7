@@ -26,16 +26,19 @@ class User extends Model
         'email',
     ];
 
-    public function wallets()
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function wallet()
     {
-        return $this->hasMany(Wallet::class);
+        return $this->hasOne(Wallet::class);
     }
 
     public static function boot(): void
     {
         self::deleting(function ($user) {
             /** @var $user User */
-            $user->wallets()->delete();
+            $user->wallet()->delete();
         });
     }
 }

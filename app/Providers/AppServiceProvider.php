@@ -2,16 +2,14 @@
 
 namespace App\Providers;
 
-use App\Services\{
-    CurrencyService,
-    CurrencyServiceInterface,
-    MoneyService,
-    MoneyServiceInterface,
-    UserService,
-    UserServiceInterface,
-    WalletService,
-    WalletServiceInterface
-};
+use App\Services\CurrencyService;
+use App\Services\CurrencyServiceInterface;
+use App\Services\MoneyService;
+use App\Services\MoneyServiceInterface;
+use App\Services\UserService;
+use App\Services\UserServiceInterface;
+use App\Services\WalletService;
+use App\Services\WalletServiceInterface;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider

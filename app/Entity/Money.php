@@ -37,11 +37,17 @@ class Money extends Model
         'wallet_id',
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function currency()
     {
         return $this->belongsTo(Currency::class);
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function wallet()
     {
         return $this->belongsTo(Wallet::class);

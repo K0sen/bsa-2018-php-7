@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Entity\Currency;
 use Illuminate\Support\Collection;
 use App\Entity\User;
 use App\Entity\Wallet;
@@ -25,12 +26,10 @@ class WalletService implements WalletServiceInterface
      * @param CreateWalletRequest $request
      * @return Wallet
      * @throws \LogicException
-     * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
      */
     public function create(CreateWalletRequest $request): Wallet
     {
         $userId = $request->getUserId();
-//        dump(User::find($this->findByUser($userId)));
         if ($this->findByUser($userId) !== null) {
             throw new \LogicException('Wallet for the user is already exists');
         }
@@ -42,8 +41,16 @@ class WalletService implements WalletServiceInterface
         return $wallet;
     }
 
+    /**
+     * Gets all currencies that belongs to the wallet
+     *
+     * @param int $walletId
+     * @return Collection
+     */
     public function findCurrencies(int $walletId): Collection
     {
-
+        return Currency::whereHas('money', function ($query) use ($walletId) {
+            $query->where('wallet_id', $walletId);
+        })->get();
     }
 }

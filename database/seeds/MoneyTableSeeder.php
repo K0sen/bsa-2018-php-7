@@ -11,6 +11,9 @@ class MoneyTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Entity\Money::class, 10)->create();
+        $wallets = App\Entity\Wallet::all();
+        foreach ($wallets as $wallet) {
+            factory(App\Entity\Money::class)->create(['wallet_id' => $wallet->id]);
+        }
     }
 }
